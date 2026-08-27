@@ -18,7 +18,7 @@ paused = 1
 playing = 2
 game_over = 3
 game_state = menu
-lives = 3
+lives = 2
 
 
 Black = (0, 0, 0)
@@ -92,7 +92,7 @@ def restart_game():
     bulletX = 0
     bulletY = 480
     bullet_state = "ready"
-    lives = 3
+    lives = 2
 
     for i in range(num_of_enemies):
         enemyX[i] = random.randint(0, 735)
@@ -207,6 +207,7 @@ while running:
                     running = False
 
         elif game_state == playing:
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     game_state = paused
@@ -247,7 +248,6 @@ while running:
                     game_state = menu
     if game_state == menu:
         display_menu()
-
 
     elif game_state == playing:
         playerX += playerX_change
